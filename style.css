@@ -66,6 +66,16 @@ body {
     text-align: center;
 }
 
+.stats-container{
+    display: flex; /* or inline-flex */
+    align-items: stretch;
+}
+
+.stats-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue
+}
+
 button {
     font-family: 'Cabin';
     border: none;

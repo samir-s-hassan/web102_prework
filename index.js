@@ -129,15 +129,39 @@ function showAllGames() {
   // add all games from the JSON data to the DOM
 }
 
+// sort the games from most backed to least backed
+function sortByMost() {
+  deleteChildElements(gamesContainer);
+  const sortedGames2 = GAMES_JSON.sort((item1, item2) => {
+    return item2.backers - item1.backers;
+  });
+  // add all games that are sorted from most backed to least backed
+  addGamesToPage(sortedGames2);
+}
+
+// sort the games from least backed to most backed
+function sortByLeast() {
+  deleteChildElements(gamesContainer);
+  const sortedGames3 = GAMES_JSON.sort((item1, item2) => {
+    return item1.backers - item2.backers;
+  });
+  // add all games that are sorted from least backed to most backed
+  addGamesToPage(sortedGames3);
+}
+
 // select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
+const mostBtn = document.getElementById("most-btn");
+const leastBtn = document.getElementById("least-btn");
 
 // add event listeners with the correct functions to each button
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
+mostBtn.addEventListener("click", sortByMost);
+leastBtn.addEventListener("click", sortByLeast);
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -151,24 +175,28 @@ const descriptionContainer = document.getElementById("description-container");
 
 //using reduce and ternary operator to count the number of unfunded
 const totalUnfunded2 = GAMES_JSON.reduce((acc, GAMES_JSON) => {
-    return GAMES_JSON.pledged < GAMES_JSON.goal ? acc + 1 : acc;
+  return GAMES_JSON.pledged < GAMES_JSON.goal ? acc + 1 : acc;
 }, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-const displayStr = 
-`A total of $${totalRaised.toLocaleString("en-US")} has been raised for ${totalGames} games. Currently, ${totalUnfunded2} games remain unfunded. 
-We need your help to fund these amazing games!`
+const displayStr = `A total of $${totalRaised.toLocaleString(
+  "en-US"
+)} has been raised for ${totalGames} games. Currently, ${totalUnfunded2} games remain unfunded. 
+We need your help to fund these amazing games!`;
 
-const displayStr1game = 
-`A total of $${totalRaised.toLocaleString("en-US")} has been raised for ${totalGames} games. Currently, ${totalUnfunded2} game remains unfunded. 
-We need your help to fund these amazing games!`
+const displayStr1game = `A total of $${totalRaised.toLocaleString(
+  "en-US"
+)} has been raised for ${totalGames} games. Currently, ${totalUnfunded2} game remains unfunded. 
+We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
 const displayStringElement = document.createElement("p");
 
 //ternary operator being used to check if their is 1 game unfunded or more which changes the grammar of the string
-totalUnfunded2 == 1 ? displayStringElement.innerHTML = displayStr1game : displayStringElement.innerHTML = displayStr;
-document.getElementById("description-container").appendChild(displayStringElement);
+totalUnfunded2 == 1
+  ? (displayStringElement.innerHTML = displayStr1game)
+  : (displayStringElement.innerHTML = displayStr);
+descriptionContainer.appendChild(displayStringElement);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -187,7 +215,6 @@ const [mostFunded, runnerUp, ...rest] = sortedGames;
 const { name: name1 } = mostFunded;
 const { name: name2 } = runnerUp;
 
-
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 const topGame = document.createElement("p");
 topGame.innerHTML = `${name1}`;
@@ -197,4 +224,3 @@ firstGameContainer.appendChild(topGame);
 const runnerUpGame = document.createElement("p");
 runnerUpGame.innerHTML = `${name2}`;
 secondGameContainer.appendChild(runnerUpGame);
-

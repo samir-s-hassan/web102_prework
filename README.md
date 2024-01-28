@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<src='https://imgur.com/a/cWHh0LX' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Video Walkthrough](https://imgur.com/a/cWHh0LX)
 
 <!-- Replace this with whatever GIF tool you used! -->
 MP4 created with MacOS Screen Recording Tool  

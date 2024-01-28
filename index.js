@@ -46,11 +46,12 @@ function addGamesToPage(games) {
             displayInfo.classList.add("game-card");
             displayInfo.innerHTML = `
             <div class = "game-card" >
-                <p> ${games[i].name} </p>
+                <h2> ${games[i].name} </h2>
                 <p> ${games[i].description} </p> 
-            </div>
-            <div class = "game-img" >
+                <div class = "game-img" >
                 <img src = ${games[i].img} >
+                </div>
+                <p> Backers: ${games[i].backers} </p> 
             </div>`
             document.getElementById("games-container").appendChild(displayInfo);
           }

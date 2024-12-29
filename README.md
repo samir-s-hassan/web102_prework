@@ -25,6 +25,7 @@ The following **optional** features are implemented:
 1. Install the Live Server extension in VS Code. (This is because modern browsers enforce a CORS (Cross-Origin Resource Sharing) policy. This issue happens when your JavaScript makes network requests (e.g., using fetch) or accesses local resources that require the http:// or https:// protocol. This is why we can't just double-click on index.html to run the app)
 2. Right-click your index.html file in the editor and select Open with Live Server.
 3. Your site will open in the browser at a URL like: http://127.0.0.1:5500
+4. Use the app!
 
 ## Video Walkthrough
 

@@ -20,6 +20,12 @@ The following **optional** features are implemented:
 * [x] The Our Games section includes a button, Sort by most Backers, that sorts the games from the most amount of individual backers to least amount of individual backers.
 * [x] The Our Games section includes a button, Sort by least Backers, that sorts the games from the least amount of individual backers to most amount of individual backers.
 
+## How to run
+
+1. Install the Live Server extension in VS Code. (This is because modern browsers enforce a CORS (Cross-Origin Resource Sharing) policy. This issue happens when your JavaScript makes network requests (e.g., using fetch) or accesses local resources that require the http:// or https:// protocol. This is why we can't just double-click on index.html to run the app)
+2. Right-click your index.html file in the editor and select Open with Live Server.
+3. Your site will open in the browser at a URL like: http://127.0.0.1:5500
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
